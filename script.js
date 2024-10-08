@@ -337,7 +337,7 @@ function navigatePokemon(direction) {
             })
             .catch(error => {
                 console.error(error);
-                displayErrorMessage('No se pudo navegar a este Pokémon.');
+                displayErrorMessage('No se pudo navegar a este Pokémon. Por favor, inténtelo de nuevo.');
             });
     }
 }
