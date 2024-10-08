@@ -1,0 +1,236 @@
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px);
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* Finaliza visible */
+    }
+}
+
+body {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0; 
+    opacity: 0.8;
+    background-image: radial-gradient(#d15959 0.5px, #a79090 0.5px);
+    background-size: 10px 10px;
+}
+
+.search {
+    z-index: 1000;
+    display: flex; 
+    text-align: center;
+    align-items: center; 
+    position: relative; 
+    margin-top:3%;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    width: 250px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color:#dde9bd; 
+}
+
+input:focus {
+    border-color: #ffcc00; 
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 10px; 
+}
+
+/* Estilo para la caja predictiva */
+.suggestions {
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    width: 270px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    animation: slide-in 0.3s ease-out; 
+    z-index: 1000; 
+}
+
+.suggestion-item {
+    padding: 10px; 
+    cursor: pointer; 
+}
+
+/* Efecto al pasar el mouse */
+.suggestion-item:hover {
+    background-color: #ffcc00; 
+}
+
+.suggestion-item.highlighted {
+    background-color: #ffcc00; 
+    color: #8a1e1e; 
+}
+
+button:hover {
+    background-color: #ffcc00; 
+    transform: scale(1.05); 
+}
+
+.navigation {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+#leftArrow, #rightArrow {
+    font-size: 2em; 
+    margin: 0 10px; 
+    cursor: pointer; 
+}
+
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+    margin-top: 20px; 
+}
+
+/* Se eliminan las clases large y small, ya que tienen la misma propiedad común */
+.pokemon-container {
+    clear: both; /* Asegurar que no haya problemas de apilamiento */
+}
+
+.pokemon-container.active {
+    display: block; 
+}
+
+.filtered .pokemon-container {
+    width: 10px; 
+}
+
+.filter-container {
+    display: none; 
+}
+
+.filter-options {
+    display: none; 
+    position: absolute; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    z-index: 1000; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    width: 100%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo para cada opción de filtro */
+.filter-options .option {
+    padding: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.filter-options .option:hover {
+    background-color: #f0f0f0; 
+}
+
+#pokemonDisplay {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    justify-content: center;
+    gap: 10px; /* Espacio entre los Pokémon */
+    max-height: 80vh; /* Establecer una altura máxima para el contenedor */
+    overflow-y: auto; /* Habilitar el desplazamiento vertical */
+    padding: 10px; /* Agregar un poco de espacio alrededor */
+}
+
+
+.pokemon {
+    background-color: #fff;
+    border: 3px solid #333;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slide-in 0.5s ease-in-out; 
+}
+
+.pokemon:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon img {
+    width: 150px;
+    height: 150px; 
+    overflow: hidden;
+}
+
+#typeFilterContainer {
+    display: flex; /* Usar flexbox para la distribución */
+    flex-wrap: wrap; /* Permitir que las imágenes se envuelvan en nuevas filas */
+    gap: 10px; /* Espacio entre las imágenes */
+    margin-top: 10px; /* Espacio arriba del contenedor de tipos */
+}
+
+.types {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5px; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.type-button {
+    display: inline-block; 
+    cursor: pointer; 
+    margin: 5px; 
+    text-align: center; 
+}
+
+.type-image {
+    will-change: opacity;
+    max-width: 50px;  
+    max-height: 18px; 
+    object-fit: contain; 
+    transition: opacity 0.3s; 
+}
+
+.type-button img {
+    max-width: 50px; 
+    max-height: 18px; 
+}
+
+.pokemon-navigation {
+    display: flex;
+    align-items: center; 
+}
+
+.navigation-container {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: center; /* Opcional: centra todo en el contenedor */
+    margin: 20px 0; /* Ajusta el margen según tus necesidades */
+}

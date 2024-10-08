@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="icon" href="imgs/masterball.png" type="image/png">
+    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que el archivo CSS se llame styles.css -->
+    <script src="https://kit.fontawesome.com/24f0b8b124.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Busca cualquier Pokémon..."> <!-- Campo de búsqueda -->
+        <button id="searchButton"><i class="fa-solid fa-search"></i></button> <!-- Botón de búsqueda -->
+        <button id="filterButton" aria-expanded="false"><i class="fa-solid fa-filter"></i></button> <!-- Botón para filtrar por tipo -->
+        <div id="typeFilterContainer" class="filter-container" style="display: none;"></div> <!-- Contenedor para opciones de filtro -->
+        <div class="suggestions" aria-live="polite"></div> <!-- Contenedor para sugerencias -->
+    </div>
+
+    <div class="navigation-container">
+        <button id="leftArrow" class="nav-button" aria-label="Navegar a la izquierda">←</button> <!-- Botón para navegación izquierda -->
+        <div id="pokemonDisplay" class="pokemon-container"></div> <!-- Contenedor para mostrar Pokémon -->
+        <button id="rightArrow" class="nav-button" aria-label="Navegar a la derecha">→</button> <!-- Botón para navegación derecha -->
+    </div>    
+
+    <script src="script.js" defer></script> <!-- Cargar JS de manera asíncrona para mejorar la carga -->
+</body>
+</html>
