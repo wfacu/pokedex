@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('filterButton').addEventListener('click', () => {
         filterContainer.style.display = (filterContainer.style.display === 'none' || filterContainer.style.display === '') ? 'block' : 'none';
     });
+    
 
 
     // Agregar botones de tipos al contenedor de filtro
@@ -313,11 +314,10 @@ function navigatePokemon(direction) {
 
         // Establecer límites
         if (newIndex < 0) {
-            newIndex = 0; // No puedes retroceder más allá de Bulbasaur
+            newIndex = 1024; // Ir a Pecharunt
         } else if (newIndex > 1024) {
-            newIndex = 1024; // No puedes avanzar más allá de Pecharunt
+            newIndex = 0; // Ir a Bulbasaur
         }
-
         // Deshabilitar flechas si estamos en los extremos
         leftArrow.style.display = newIndex === 0 ? 'none' : 'inline-block';
         rightArrow.style.display = newIndex === 1024 ? 'none' : 'inline-block';
@@ -341,7 +341,6 @@ function navigatePokemon(direction) {
             });
     }
 }
-
 
 // Función para actualizar la sugerencia resaltada
 function updateHighlightedSuggestion() {
