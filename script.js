@@ -212,14 +212,14 @@ async function filterByType(type) {
             if (filteredPokemonList.length > 0) {
                 displayFilteredPokemons(filteredPokemonList);
             } else {
-                displayErrorMessage('No Pokémon found for this type.');
+                displayErrorMessage('No se pudo encontrar ningún Pokémon de este tipo.');
             }
         } else {
-            console.error('Error fetching Pokémon by type:', response.status);
+            console.error('Error al buscar Pokémon por tipo:', response.status);
         }
     } catch (error) {
-        console.error('Error fetching Pokémon data:', error);
-        displayErrorMessage('Error fetching Pokémon data.');
+        console.error('Error al buscar la data del Pokémon:', error);
+        displayErrorMessage('Error al buscar la data del Pokémon.');
     }
 }
 

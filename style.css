@@ -17,8 +17,7 @@ body {
     height: 100vh; 
     margin: 0; 
     font-family: Trebuchet MS;
-    opacity: 0.8;
-    background-image: radial-gradient(#d15959 0.5px, #a79090 0.5px);
+    background-image: radial-gradient(#d15959 1px, #a79090 2px);
     background-size: 10px 10px;
 }
 
