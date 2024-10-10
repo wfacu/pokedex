@@ -224,6 +224,24 @@ async function filterByType(type) {
     }
 }
 
+async function fetchWeaknesses(types) {
+    const weaknesses = {};
+
+    // Para cada tipo del Pokémon, obtener las debilidades desde la API
+    for (let i = 0; i < types.length; i++) {
+        const typeName = types[i].type.name;
+        const url = `https://pokeapi.co/api/v2/type/${typeName}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Obtener los tipos que causan más daño (doble daño)
+        data.damage_relations.double_damage_from.forEach(weakType => {
+            weaknesses[weakType.name] = true; // Agregar el tipo que es débil
+        });
+    }
+
+    return Object.keys(weaknesses); // Devolver los nombres de los tipos que son debilidades
+}
 
 // Función para mostrar un Pokémon específico
 function displayPokemon(pokemon) {

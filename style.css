@@ -120,6 +120,9 @@ button:hover {
 /* Se eliminan las clases large y small, ya que tienen la misma propiedad común */
 .pokemon-container {
     clear: both; /* Asegurar que no haya problemas de apilamiento */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
 }
 
 .pokemon-container.active {
@@ -185,9 +188,8 @@ button:hover {
 }
 
 .pokemon img {
-    width: 150px;
+    max-width: 100%;
     height: 150px; 
-    overflow: hidden;
 }
 
 #typeFilterContainer {
